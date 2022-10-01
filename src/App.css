@@ -1,14 +1,82 @@
 .navbar-nav a{
   font-size: 20px;
 }
+.cont{
+  margin-left:1px !important;
+  margin-right: 1px !important;
+max-width:100%;
+}
 .hero
 .card
 .card-img{
   min-height: 40vh;
+  max-height: 80vh;
+  
+}
+.nav-linkk{
+  color: black !important;
+  text-decoration: none !important;
+}
+.gen-child{
+  flex:1 1 0%;
+}
+.navbar-collapse{
+  text-align:center;
+}
+body{
+  overflow-x: hidden;
 }
 .card-img{
-  object-fit: cover;
+  object-fit: inherit;
   
+}
+.fa-stack[data-count]:after {
+  position: absolute;
+  right: 12%;
+  top: 19%;
+  content: attr(data-count);
+  font-size: 30%;
+  border:2px;
+  padding: 0.3em;
+  border-radius: 999px;
+  line-height: 0.75em;
+  color: white;
+  color:black;
+  text-align: center;
+  min-width: 2em;
+  font-weight: bold;
+  background: white;
+  border-style: solid;
+}
+.navbar-light,
+.navbar-toggler{
+  border-color: none !important;
+}
+.gold{
+  color:gold;
+}
+navbar-toggler{
+  padding: 0px !important;
+}
+.navbar-toggler:focus{
+  text-decoration: none !important;
+  outline: none !important;
+  box-shadow: none !important;
 
 }
+.n-arrivals{
+  width: 50% !important;
+  margin-left: 0px !important;
+  padding-left: 0px !important;
+}
+.fa{
+  font-size: x-large;
+}
 
+@media screen and (max-width:500px) {
+.card-img-top{
+  height: 200px;
+}
+
+  
+}

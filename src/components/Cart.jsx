@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 function cart() {
   return (
-    <div>cart</div>
+    <div>The cart is empty</div>
   )
 }
 

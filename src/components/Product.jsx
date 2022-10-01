@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import React  from 'react'
-import {useSelector, useDispatch} from 'react-redux'
-import { addCart } from "../redux/action";
+import { useDispatch} from 'react-redux'
+import { addItem, delItem } from "../redux/action/index";
 import { useParams } from "react-router-dom";
 import Skeleton from 'react-loading-skeleton'
 import "react-loading-skeleton/dist/skeleton.css"
@@ -13,16 +13,29 @@ function Product() {
     
     const {id}= useParams();
     const [product, setProduct] = useState([])
-    const [loading, setLoading] = useState(false)
-    
+    const [loading, setLoading] = useState(true)
+const [cartbtn, setCartbtn]=useState('Add to Cart')    
+//storing useDispatch in a variable
 const dispatch = useDispatch();
+
 const addProduct = (product)=>{
-    dispatch(addCart(product));
+   
+if (cartbtn === "Add to Cart"){
+    dispatch(addItem(product))
+    setCartbtn('Remove from Cart')
+
+}
+else{
+    dispatch(delItem(product))
+    setCartbtn('Add to Cart')
+
+}
 }
 
     useEffect(() => {
+
         const getProducts = async ()=>{
-            setLoading(true);
+           
             const response = await fetch(`https://fakestoreapi.com/products/${id}`);
             
                 setProduct(await response.json());
@@ -56,20 +69,20 @@ const addProduct = (product)=>{
     const ShowProduct = ()=>{
         return(
         <>
-        <div className="col-md-6">
+        <div className="col-md-6 gen-child">
             <img src={product.image} alt={product.title}
-            height="300px" width=""/>
+            height="300px" width="90%"/>
         </div>
         <div className="col-md-6">
             <h4 className="text-uppercase text-black-50">{product.category}</h4>
         <h1 className="display-5">{product.title}</h1>
         <p className="lead">
-            Rating {product.rating && product.rating.rate}
-        <i className="fa fa-star"></i>
+            Rating {product.rating && product.rating.rate + " "}  
+        <i className="fa fa-star gold"></i>
         </p>
         <h3 className="display-6 fw-bold my-4">${product.price}</h3>
         <p className="lead">{product.description}</p>
-        <button className="btn btn-outline-dark px-4 py-2"onClick={()=>addProduct(product)}>Add to Cart</button>
+        <button className="btn btn-outline-dark px-4 py-2"onClick={()=>addProduct(product)}>{cartbtn}</button>
         <Link to="/cart" className="btn btn-dark ms-2 px-3 py-2">Go to Cart</Link>
         
         </div>

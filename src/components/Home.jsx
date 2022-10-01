@@ -4,12 +4,12 @@ import Products from './Products'
 const  Home = ()=> {
   return (
     <div className='hero'>
-        <div class="card bg-dark text-black border-0">
-  <img src="/assets/pexels-karolina-grabowska-5632402.jpg" className="card-img" alt="" />
-  <div class="card-img-overlay">
-      <div className="container">
-    <h5 class="card-title display-3 fw-bolder mb-0">NEW SEASON ARRIVALS</h5>
-    <p class="card-text lead fs-2">CHECK OUT ALL THE TRENDS</p>
+        <div className="card bg-dark text-black border-0">
+  <img src="/assets/bg-img.jpg" className="card-img" alt="" />
+  <div className="card-img-overlay">
+      <div className="container n-arrivals">
+    <h2 className="card-title mt-3 mb-0">NEW SEASON ARRIVALS</h2>
+    {/* <p className="card-text lead fs-2">CHECK OUT ALL THE TRENDS</p> */}
   </div>
 </div>
 </div>

@@ -9,7 +9,6 @@ const  Home = ()=> {
   <div className="card-img-overlay">
       <div className="container n-arrivals">
     <h2 className="card-title mt-3 mb-0">NEW SEASON ARRIVALS</h2>
-    {/* <p className="card-text lead fs-2">CHECK OUT ALL THE TRENDS</p> */}
   </div>
 </div>
 </div>

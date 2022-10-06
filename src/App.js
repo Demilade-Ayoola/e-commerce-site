@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import Paystack from './components/Paystack'
 import './App.css';
 import Home from './components/Home';
 import Navigation from './components/Navigation';
@@ -19,7 +19,8 @@ function App() {
     <Route exact path='/' element={<Home/>}></Route>
     <Route exact path='/Product/:id' element={<Product/>}></Route>
     <Route exact path='/Products' element={<Products/>}></Route>
-    <Route exact path='/Cart' element={<Cart/>}></Route>
+    <Route exact path='/Cart' element={<Cart/>}> </Route>
+    <Route exact path='/checkout' element={<Paystack/>}></Route>
     </Routes>
     </Router>
     </>

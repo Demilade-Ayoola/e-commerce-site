@@ -10,6 +10,25 @@ const [expanded, setExpanded]=useState(false)
  
 const state = useSelector((state)=> state.addItems)
 
+const noLength= ()=>{
+  return(
+    <Link to="/cart" className=" d-lg-none btn btn-sm nav-linkk">
+  
+<i className="fa fa-shopping-cart"></i> 
+</Link>
+  )
+}
+const yesLength=()=>{
+return (
+  <Link to="/cart" className=" d-lg-none btn btn-sm nav-linkk">
+  <span className="fa-stack fa-2x" data-count={state.length}>
+<i className="fa-stack-2x fa-inverse"> </i>
+<i className="fa fa-shopping-cart"></i>
+</span> 
+</Link>
+);
+}
+
 return ( 
 
 
@@ -19,12 +38,14 @@ return (
       <Navbar.Toggle onClick={()=> setExpanded(expanded ? false : 'expanded')} aria-controls="responsive-navbar-nav" />
         <Link  to="/" className='nav-linkk'><Navbar.Brand href="" className='nav-linkk ps-4 ps-md-2 fs-4 fw-bolder'>DEMISHOP</Navbar.Brand></Link>
         </div>
-        <Link to="/cart" className=" d-lg-none btn btn-sm nav-linkk">
-        <span className="fa-stack fa-2x" data-count={state.length}>
-  <i className="fa-stack-2x fa-inverse"> </i> 
+        {/* <Link to="/cart" className=" d-lg-none btn btn-sm nav-linkk">
+       <span className="fa-stack fa-2x" data-count={state.length}>
+  <i className="fa-stack-2x fa-inverse"> </i>
   <i className="fa fa-shopping-cart"></i>
 </span> 
-             </Link>
+             </Link> */}
+             {state.length === 0 && noLength()}
+             {state.length !== 0 && yesLength()}
               <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mx-auto">
           <Link to='/' onClick={()=>setExpanded(false)} className='nav-linkk nav-link text-dark' href="">Home</Link>

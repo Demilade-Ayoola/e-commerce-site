@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import React  from 'react'
 import { useDispatch} from 'react-redux'
-import { addItem, delItem } from "../redux/action/index";
+import { addItem, delItem, handleCounter  } from "../redux/action/index";
 import { useParams } from "react-router-dom";
 import Skeleton from 'react-loading-skeleton'
 import "react-loading-skeleton/dist/skeleton.css"
@@ -15,21 +15,52 @@ function Product() {
     const [product, setProduct] = useState([])
     const [loading, setLoading] = useState(true)
 const [cartbtn, setCartbtn]=useState('Add to Cart')    
+const [quantity, setQuantity]= useState(true)
+const [counter, setCounter]= useState(1)
 //storing useDispatch in a variable
 const dispatch = useDispatch();
 
+const icount = {
+    count : {counter}
+};
+
 const addProduct = (product)=>{
    
+   const newProduct = {
+       ...product,
+       ...icount
+   }
+   console.log(newProduct)
 if (cartbtn === "Add to Cart"){
-    dispatch(addItem(product))
+    dispatch(addItem(newProduct))
     setCartbtn('Remove from Cart')
-
+setQuantity(false)
 }
 else{
-    dispatch(delItem(product))
+    dispatch(delItem(newProduct))
     setCartbtn('Add to Cart')
-
+setQuantity(true)
 }
+}
+
+const increment = (counter)=>{
+if(counter >= 10){
+    setCounter(10)
+}
+else{
+    // dispatch(handleCounter(counter))
+    setCounter(counter + 1)
+}
+} 
+
+const decrement = (counter)=>{
+    if (counter <= 1){
+        setCounter(1)
+    }
+    else{
+        setCounter(counter - 1)
+        // dispatch(handleCounter(counter))
+    }
 }
 
     useEffect(() => {
@@ -82,6 +113,11 @@ else{
         </p>
         <h3 className="display-6 fw-bold my-4">${product.price}</h3>
         <p className="lead">{product.description}</p>
+        {quantity ? (<div className="d-flex align-items-center">
+       <button className='btn me-4 my-1 btn-sm p-2 btn-outline-dark incre' onClick = {()=>decrement(counter)}>-</button> 
+       <div id='counter'><h3>{counter}</h3></div>
+      <button className='btn btn-sm ms-4 my-1 p-2 btn-outline-dark incre' onClick = {()=>increment(counter)}>+</button> 
+     </div> ): null}
         <button className="btn btn-outline-dark px-4 py-2"onClick={()=>addProduct(product)}>{cartbtn}</button>
         <Link to="/cart" className="btn btn-dark ms-2 px-3 py-2">Go to Cart</Link>
         

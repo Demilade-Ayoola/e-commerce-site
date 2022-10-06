@@ -3,10 +3,18 @@ const cart = [];
 const addItems = (state=cart, action)=>{
 //const product = action.payload;
 switch (action.type) {
-    case 'ADDITEM': return [
+    case 'ADDITEM': 
+    const exist = state.find((x)=> x.id === action.payload.id)
+    if(exist){
+        return state
+        alert('product already added to cart');
+    }
+    else{
+    return [
         ...state, 
         action.payload
     ];
+}
         //Check if product exists
         // const exist = state.find((x)=>x.id ===product.id);
         //increase the quantity

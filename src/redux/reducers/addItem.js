@@ -7,7 +7,7 @@ switch (action.type) {
     const exist = state.find((x)=> x.id === action.payload.id)
     if(exist){
         return state
-        alert('product already added to cart');
+       
     }
     else{
     return [

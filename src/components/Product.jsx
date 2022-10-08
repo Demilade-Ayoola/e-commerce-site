@@ -8,7 +8,6 @@ import "react-loading-skeleton/dist/skeleton.css"
 import { Link } from 'react-router-dom';
 
 
-
 function Product() {
     
     const {id}= useParams();
@@ -40,6 +39,7 @@ else{
     dispatch(delItem(newProduct))
     setCartbtn('Add to Cart')
 setQuantity(true)
+
 }
 }
 
@@ -97,6 +97,7 @@ const decrement = (counter)=>{
                </>
         )
     }
+
     const ShowProduct = ()=>{
         return(
         <>
@@ -111,9 +112,9 @@ const decrement = (counter)=>{
             Rating {product.rating && product.rating.rate + " "}  
         <i className="fa fa-star gold"></i>
         </p>
-        <h3 className="display-6 fw-bold my-4">${product.price}</h3>
+        <h3 className="display-6 fw-bold my-4">₦{product.price * 20}</h3>
         <p className="lead">{product.description}</p>
-        {quantity ? (<div className="d-flex align-items-center">
+        {quantity ? (<div className="d-flex justify-content-center align-items-center">
        <button className='btn me-4 my-1 btn-sm p-2 btn-outline-dark incre' onClick = {()=>decrement(counter)}>-</button> 
        <div id='counter'><h3>{counter}</h3></div>
       <button className='btn btn-sm ms-4 my-1 p-2 btn-outline-dark incre' onClick = {()=>increment(counter)}>+</button> 

@@ -13,10 +13,3 @@ export const delItem = (newProduct) =>{
         payload: newProduct,
     }
 }
-//to handle number state
-export const handleCounter = (counter)=>{
-    return{
-        type: "HANDLECOUNTER",
-        payload: counter,
-    }
-}

@@ -67,7 +67,7 @@ return(
   <div className="card-body">
     <h6 className="card-title mb-0">{product.title.substring(0,12)}...</h6>
     <p className="card-text lead fw-bolder">
-        ${product.price}
+    ₦{product.price * 20}
     </p>
     <Link to={`/Product/${product.id}`} className="btn btn-outline-dark">Buy Now</Link>
   </div>

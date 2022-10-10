@@ -17,7 +17,12 @@ const [address, setAddress]= useState('')
 const [number, setNumber]= useState()
 
 useEffect(() => {
-const sum = {total}
+    const scrolltoTop = () =>{
+        window.scrollTo(0,0)
+    }
+    scrolltoTop();        
+    
+    const sum = {total}
    console.log({total})
 setAmount(sum.total)
 }, [])

@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { useSelector } from 'react-redux'
 import { useDispatch} from 'react-redux'
 import { delItem } from "../redux/action/index";
@@ -8,6 +8,15 @@ function Cart() {
   const state = useSelector((state)=> state.addItems)
   const dispatch = useDispatch();
 var total = 0;
+
+useEffect(() => {
+  const scrolltoTop = () =>{
+    window.scrollTo(0,0)
+}
+scrolltoTop();        
+
+}, [])
+
 
   const handleClose = (item)=>{
 dispatch(delItem(item))

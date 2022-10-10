@@ -48,7 +48,7 @@ if(counter >= 10){
     setCounter(10)
 }
 else{
-    // dispatch(handleCounter(counter))
+  
     setCounter(counter + 1)
 }
 } 
@@ -59,7 +59,6 @@ const decrement = (counter)=>{
     }
     else{
         setCounter(counter - 1)
-        // dispatch(handleCounter(counter))
     }
 }
 
@@ -74,7 +73,11 @@ const decrement = (counter)=>{
           }
     
         getProducts();
-      
+const scrolltoTop = () =>{
+    window.scrollTo(0,0)
+}
+scrolltoTop();        
+
     }, []);
     
     const Loading = () =>{
